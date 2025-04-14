@@ -1,0 +1,10 @@
+name: jPrisonCore
+main: me.jack.jprisoncore.PrisonCore
+version: 0.1
+author: ReallyJack
+commands:
+  mine:
+  pmine:
+  rankup:
+
+
