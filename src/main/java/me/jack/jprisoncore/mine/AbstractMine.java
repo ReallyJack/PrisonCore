@@ -3,28 +3,33 @@ package me.jack.jprisoncore.mine;
 import me.jack.jprisoncore.game.User;
 import org.bukkit.Location;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class AbstractMine {
 
-    public User owner;
-    public String name;
-    public Location location;
+    private User owner;
+    private Location point1;
+    private Location point2;
 
-    public AbstractMine(String name, User owner, Location location) {
-        this.name = name;
+    public AbstractMine(User owner, Location point1, Location point2) {
         this.owner = owner;
-        this.location = location;
-    }
-
-    public Location getLocation() {
-        return location;
+        this.point1 = point1;
+        this.point2 = point2;
     }
 
     public User getOwner() {
         return owner;
     }
-    public String getName() {
-        return name;
+
+    public Location getPoint1() {
+        return point1;
     }
 
+    public Location getPoint2() {
+        return point2;
+    }
+
+    public abstract void create();
 
 }

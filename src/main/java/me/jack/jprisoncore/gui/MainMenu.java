@@ -1,43 +1,32 @@
 package me.jack.jprisoncore.gui;
 
 import me.jack.jprisoncore.game.User;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
 public class MainMenu extends AbstractMenu {
 
-    public MainMenu(User holder) {
-        super(holder, 9, "Main Menu");
+    public MainMenu() {
+        super(9, "Main Menu");
 
+        initializeItems();
     }
 
     @Override
     protected void initializeItems() {
-        getInventory().setItem(0, new ItemStack(Material.BOOK));
-        getInventory().setItem(1, new ItemStack(Material.BOOK));
-        getInventory().setItem(2, new ItemStack(Material.BOOK));
-        getInventory().setItem(3, new ItemStack(Material.BOOK));
-        getInventory().setItem(4, new ItemStack(Material.BOOK));
-        getInventory().setItem(5, new ItemStack(Material.BOOK));
-        getInventory().setItem(6, new ItemStack(Material.BOOK));
-        getInventory().setItem(7, new ItemStack(Material.BOOK));
-        getInventory().setItem(8, new ItemStack(Material.BOOK));
+
+        ItemStack zero = new ItemStack(Material.DIAMOND_PICKAXE);
+        ItemStack one = new ItemStack(Material.CLOCK);
+        ItemStack two = new ItemStack(Material.COMPASS);
+
+        getInventory().setItem(0, zero);
+        getInventory().setItem(1, one);
+        getInventory().setItem(2, two);
+
 
     }
 
-    @Override
-    public void handleClick(InventoryClickEvent event) {
-        event.setCancelled(true);
-
-        ItemStack clickedItem = event.getCurrentItem();
-        Player player = (Player) event.getWhoClicked();
-
-        if (clickedItem == null || clickedItem.getType() == Material.AIR || !clickedItem.hasItemMeta()) {
-            return;
-        }
-
-    }
 
 }

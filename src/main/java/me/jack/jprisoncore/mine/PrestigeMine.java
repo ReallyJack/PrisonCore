@@ -5,9 +5,12 @@ import org.bukkit.Location;
 
 public class PrestigeMine extends AbstractMine {
 
-    public PrestigeMine(String name, User owner, Location location) {
-        super(name, owner, location);
+    public PrestigeMine(User owner, Location point1, Location point2) {
+        super(owner, point1, point2);
     }
 
+    @Override
+    public void create() {
 
+    }
 }

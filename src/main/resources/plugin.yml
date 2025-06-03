@@ -1,6 +1,7 @@
 name: jPrisonCore
 main: me.jack.jprisoncore.PrisonCore
 version: 0.1
+api-version: 1.21.4
 author: ReallyJack
 commands:
   mine:

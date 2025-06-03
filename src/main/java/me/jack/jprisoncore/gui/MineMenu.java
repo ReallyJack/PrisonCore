@@ -1,12 +1,15 @@
 package me.jack.jprisoncore.gui;
 
 import me.jack.jprisoncore.game.User;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
 public class MineMenu extends AbstractMenu {
 
-    public MineMenu(User owner) {
-        super(owner, 18, "Mine Menu");
+    public MineMenu() {
+        super(18, "Mine Menu");
+
     }
 
 
@@ -15,8 +18,4 @@ public class MineMenu extends AbstractMenu {
 
     }
 
-    @Override
-    protected void handleClick(InventoryClickEvent event) {
-
-    }
 }

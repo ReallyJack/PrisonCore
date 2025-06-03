@@ -13,16 +13,16 @@ public class User {
     private double balance;
     private int tokens;
     private boolean isPrestige;
-    private List<PrivateMine> privateMines;
+    private PrivateMine privateMine;
     private List<Enchant> enchantList;
 
-    public User(String name, Rank rank, double balance, int tokens, boolean isPrestige, List<Enchant> enchantList, List<PrivateMine> privateMines) {
+    public User(String name, Rank rank, double balance, int tokens, boolean isPrestige, List<Enchant> enchantList, PrivateMine privateMine) {
         this.name = name;
         this.rank = rank;
         this.balance = balance;
         this.tokens = tokens;
         this.isPrestige = isPrestige;
-        this.privateMines = privateMines;
+        this.privateMine = privateMine;
         this.enchantList = enchantList;
     }
 
@@ -34,7 +34,8 @@ public class User {
         this.isPrestige = false;
 
         this.enchantList = new ArrayList<>();
-        this.privateMines = new ArrayList<>();
+        //TODO fix to this = this.privateMine = new PrivateMine(name);
+        this.privateMine = null;
     }
 
     public String getName() {
@@ -57,8 +58,13 @@ public class User {
         return isPrestige;
     }
 
+    public PrivateMine getPrivateMine() { return privateMine; }
+
     public List<Enchant> getEnchantList() {
         return enchantList;
     }
 
+    public void setPrivateMine(PrivateMine privateMine) {
+        this.privateMine = privateMine;
+    }
 }

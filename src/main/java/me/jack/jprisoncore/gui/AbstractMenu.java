@@ -12,32 +12,25 @@ import org.bukkit.inventory.ItemStack;
 public abstract class AbstractMenu implements InventoryHolder {
 
     private Inventory inventory;
-    private User viewer;
     private String title;
     private int size;
 
-    public AbstractMenu(User viewer, int size, String title) {
-        this.viewer = viewer;
+    public AbstractMenu(int size, String title) {
         this.title = title;
         this.size = size;
+
         this.inventory = Bukkit.createInventory(this, size, title);
     }
 
     protected abstract void initializeItems();
 
-    protected abstract void handleClick(InventoryClickEvent event);
-
     public void open(Player player) {
-            player.openInventory(inventory);
+        player.openInventory(inventory);
     }
 
     @Override
     public Inventory getInventory() {
-        return inventory;
-    }
-
-    public User getViewer() {
-        return viewer;
+        return this.inventory;
     }
 
     public int getSize() {
@@ -47,4 +40,5 @@ public abstract class AbstractMenu implements InventoryHolder {
     public String getTitle() {
         return title;
     }
+
 }

@@ -1,12 +1,12 @@
 package me.jack.jprisoncore;
 
+import me.jack.jprisoncore.command.MineCommand;
 import me.jack.jprisoncore.event.Interact;
 import me.jack.jprisoncore.event.InventoryClick;
 import me.jack.jprisoncore.event.Join;
 import me.jack.jprisoncore.game.User;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.*;
@@ -24,9 +24,10 @@ public class PrisonCore extends JavaPlugin {
         saveDefaultConfig();
 
         getServer().getPluginManager().registerEvents(new Interact(this), this);
-        getServer().getPluginManager().registerEvents(new InventoryClick(), this);
+        getServer().getPluginManager().registerEvents(new InventoryClick(this), this);
         getServer().getPluginManager().registerEvents(new Join(this), this);
 
+        getCommand("pmine").setExecutor(new MineCommand(this));
         /*
         ConfigurationSection rankSection = getConfig().getConfigurationSection("ranks");
         Set<String> rankKeys = rankSection.getKeys(false);

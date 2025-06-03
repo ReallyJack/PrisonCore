@@ -6,7 +6,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 public class EnchantMenu extends AbstractMenu {
 
     public EnchantMenu(User owner) {
-        super(owner, 27, "Enchant Menu");
+        super(27, "Enchant Menu");
     }
 
     @Override
@@ -14,8 +14,5 @@ public class EnchantMenu extends AbstractMenu {
 
     }
 
-    @Override
-    protected void handleClick(InventoryClickEvent event) {
 
-    }
 }

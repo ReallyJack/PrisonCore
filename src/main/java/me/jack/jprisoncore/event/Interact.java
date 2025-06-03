@@ -1,7 +1,9 @@
 package me.jack.jprisoncore.event;
 
 import me.jack.jprisoncore.PrisonCore;
+import me.jack.jprisoncore.game.User;
 import me.jack.jprisoncore.gui.MainMenu;
+import me.jack.jprisoncore.mine.PrivateMine;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -25,7 +27,7 @@ public class Interact implements Listener {
             if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
 
 
-                MainMenu menu = new MainMenu(instance.getUser(player.getName()));
+                MainMenu menu = new MainMenu();
 
                 menu.open(player);
             }
