@@ -3,6 +3,7 @@ package me.jack.jprisoncore.event;
 import me.jack.jprisoncore.PrisonCore;
 import me.jack.jprisoncore.game.User;
 import me.jack.jprisoncore.mine.PrivateMine;
+import me.jack.jprisoncore.rank.Rank;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -25,13 +26,13 @@ public class Join implements Listener {
     public void onJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
 
-
-        instance.users.add(new User(player.getName()));
-
+        User user = new User(player.getName(), 100.0D, 0, false, null);
         //TODO add spawn loc from config
         PrivateMine pmine = new PrivateMine(instance.getUser(player.getName()), null, null);
+
+        user.setPrivateMine(pmine);
         pmine.create();
-        instance.getUser(player.getName()).setPrivateMine(pmine);
+
 
     }
 }

@@ -1,14 +1,13 @@
 package me.jack.jprisoncore.mine;
 
-import me.jack.jprisoncore.PrisonCore;
 import me.jack.jprisoncore.game.User;
 import org.apache.commons.io.FileUtils;
-import org.bukkit.*;
-import org.bukkit.entity.Player;
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.WorldCreator;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.UUID;
 
 public class PrivateMine extends AbstractMine {
 
@@ -26,7 +25,7 @@ public class PrivateMine extends AbstractMine {
             wc.createWorld();
 
             System.out.println("copied to " + Bukkit.getWorldContainer().getAbsolutePath());
-        }catch(IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

@@ -1,0 +1,106 @@
+ranks:
+  A:
+    price: 1000
+    prefix: "[A]"
+    color: "#FFFFF"
+  B:
+    price: 2000
+    prefix: "[B]"
+    color: "#FFFFF"
+  C:
+    price: 3000
+    prefix: "[C]"
+    color: "#FFFFF"
+  D:
+    price: 4000
+    prefix: "[D]"
+    color: "#FFFFF"
+  E:
+    price: 5000
+    prefix: "[E]"
+    color: "#FFFFF"
+  F:
+    price: 6000
+    prefix: "[F]"
+    color: "#FFFFF"
+  G:
+    price: 7000
+    prefix: "[G]"
+    color: "#FFFFF"
+  H:
+    price: 8000
+    prefix: "[H]"
+    color: "#FFFFF"
+  I:
+    price: 9000
+    prefix: "[I]"
+    color: "#FFFFF"
+  J:
+    price: 10000
+    prefix: "[J]"
+    color: "#FFFFF"
+  K:
+    price: 11000
+    prefix: "[K]"
+    color: "#FFFFF"
+  L:
+    price: 12000
+    prefix: "[L]"
+    color: "#FFFFF"
+  M:
+    price: 13000
+    prefix: "[M]"
+    color: "#FFFFF"
+  N:
+    price: 14000
+    prefix: "[N]"
+    color: "#FFFFF"
+  O:
+    price: 15000
+    prefix: "[O]"
+    color: "#FFFFF"
+  P:
+    price: 16000
+    prefix: "[P]"
+    color: "#FFFFF"
+  Q:
+    price: 17000
+    prefix: "[Q]"
+    color: "#FFFFF"
+  R:
+    price: 18000
+    prefix: "[R]"
+    color: "#FFFFF"
+  S:
+    price: 19000
+    prefix: "[S]"
+    color: "#FFFFF"
+  T:
+    price: 20000
+    prefix: "[T]"
+    color: "#FFFFF"
+  U:
+    price: 21000
+    prefix: "[U]"
+    color: "#FFFFF"
+  V:
+    price: 22000
+    prefix: "[V]"
+    color: "#FFFFF"
+  W:
+    price: 23000
+    prefix: "[W]"
+    color: "#FFFFF"
+  X:
+    price: 24000
+    prefix: "[X]"
+    color: "#FFFFF"
+  Y:
+    price: 25000
+    prefix: "[Y]"
+    color: "#FFFFF"
+  Z:
+    price: 26000
+    prefix: "[Z]"
+    color: "#FFFFF"
+

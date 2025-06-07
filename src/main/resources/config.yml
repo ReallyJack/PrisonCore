@@ -1,6 +1,7 @@
+rank-price-multiplier: 1
 rankup-multiplier: 1
 tokens-multiplier: 1
-reset-timer: 1.0
+reset-timer: 60
 private-mine-spawn:
   x: -65
   y: 8

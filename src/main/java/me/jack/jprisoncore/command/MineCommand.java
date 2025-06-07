@@ -3,6 +3,7 @@ package me.jack.jprisoncore.command;
 import me.jack.jprisoncore.PrisonCore;
 import me.jack.jprisoncore.game.User;
 import me.jack.jprisoncore.gui.MineMenu;
+import me.jack.jprisoncore.rank.Rank;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -19,7 +20,7 @@ public class MineCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String s, String[] args) {
 
-        if (cmd.getName().equalsIgnoreCase("pmine")) {
+        if (cmd.getName().equalsIgnoreCase("rankup")) {
             if (sender instanceof Player) {
                 Player player = (Player) sender;
 
@@ -31,11 +32,14 @@ public class MineCommand implements CommandExecutor {
                 }
 
                 User user = instance.getUser(player.getName());
-                MineMenu mineMenu = new MineMenu();
-                mineMenu.open(player);
+                Rank rank = user.getRank();
+                rank.getNextRank();
+
             }
         }
 
         return false;
     }
+
+
 }
