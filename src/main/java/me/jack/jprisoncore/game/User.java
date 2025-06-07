@@ -21,6 +21,8 @@ public class User {
         this.tokens = tokens;
         this.isPrestige = isPrestige;
         this.enchantList = enchantList;
+
+        setRank(Rank.getRankByID(1));
     }
 
     public String getName() {

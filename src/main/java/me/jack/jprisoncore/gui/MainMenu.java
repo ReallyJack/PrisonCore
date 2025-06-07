@@ -15,17 +15,15 @@ public class MainMenu extends AbstractMenu {
     }
 
     @Override
-    protected void initializeItems() {
+    public void initializeItems() {
 
         ItemStack zero = new ItemStack(Material.DIAMOND_PICKAXE);
         ItemStack one = new ItemStack(Material.CLOCK);
         ItemStack two = new ItemStack(Material.COMPASS);
 
-        getInventory().setItem(0, zero);
-        getInventory().setItem(1, one);
-        getInventory().setItem(2, two);
-
-
+        getInventory().setItem(3, zero);
+        getInventory().setItem(4, one);
+        getInventory().setItem(5, two);
     }
 
 

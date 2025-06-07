@@ -22,11 +22,11 @@ public abstract class AbstractMenu implements InventoryHolder {
         this.inventory = Bukkit.createInventory(this, size, title);
     }
 
-    protected abstract void initializeItems();
-
     public void open(Player player) {
         player.openInventory(inventory);
     }
+
+    protected abstract void initializeItems();
 
     @Override
     public Inventory getInventory() {

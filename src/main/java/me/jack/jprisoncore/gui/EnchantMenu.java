@@ -1,17 +1,25 @@
 package me.jack.jprisoncore.gui;
 
-import me.jack.jprisoncore.game.User;
-import org.bukkit.event.inventory.InventoryClickEvent;
+import me.jack.jprisoncore.game.Enchant;
+import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
 
 public class EnchantMenu extends AbstractMenu {
 
-    public EnchantMenu(User owner) {
-        super(27, "Enchant Menu");
+    public EnchantMenu() {
+        super(54, "Enchant Menu");
+
+        initializeItems();
     }
 
     @Override
-    protected void initializeItems() {
+    public void initializeItems() {
+        ItemStack compass = new ItemStack(Material.COMPASS);
 
+        for (Enchant e : Enchant.values()) {
+            getInventory().addItem(e.getItem());
+        }
+        getInventory().setItem(53, compass);
     }
 
 

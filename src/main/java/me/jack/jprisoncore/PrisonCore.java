@@ -4,6 +4,7 @@ import me.jack.jprisoncore.command.MineCommand;
 import me.jack.jprisoncore.event.Interact;
 import me.jack.jprisoncore.event.InventoryClick;
 import me.jack.jprisoncore.event.Join;
+import me.jack.jprisoncore.game.Enchant;
 import me.jack.jprisoncore.game.User;
 import me.jack.jprisoncore.rank.Rank;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -38,6 +39,10 @@ public class PrisonCore extends JavaPlugin {
         rank.promoteUser(user1);
 
         System.out.println(user1.getRank().getPrefix() + " new rank");
+
+        for (Enchant enchant : Enchant.values()) {
+            System.out.println(enchant.getItem());
+        }
     }
 
     @Override
