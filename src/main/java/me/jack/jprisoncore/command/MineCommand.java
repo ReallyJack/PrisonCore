@@ -33,8 +33,53 @@ public class MineCommand implements CommandExecutor {
 
                 User user = instance.getUser(player.getName());
                 Rank rank = user.getRank();
-                rank.getNextRank();
+                Rank next = rank.getNextRank();
+                double bal = user.getBalance();
+                double price = next.getPrice();
 
+                if (bal >= price) {
+                    player.sendMessage("you are now rank " + next.getPrefix());
+                    user.setRank(next);
+                    user.setBalance(bal - next.getPrice());
+                } else {
+                    player.sendMessage("you do not have enough money");
+                }
+
+            }
+        }
+
+       else if (cmd.getName().equalsIgnoreCase("rank")) {
+            if (sender instanceof Player) {
+                Player player = (Player) sender;
+
+
+                if (args.length > 0) {
+
+                    player.sendMessage("Incorrect usage!");
+                    return true;
+                }
+
+                User user = instance.getUser(player.getName());
+                Rank rank = user.getRank();
+
+                player.sendMessage("you are rank " + rank.getPrefix());
+            }
+        }
+        else if (cmd.getName().equalsIgnoreCase("balance")) {
+            if (sender instanceof Player) {
+                Player player = (Player) sender;
+
+
+                if (args.length > 0) {
+
+                    player.sendMessage("Incorrect usage!");
+                    return true;
+                }
+
+                User user = instance.getUser(player.getName());
+                Rank rank = user.getRank();
+
+                player.sendMessage("you have " + user.getBalance() + " dollars");
             }
         }
 

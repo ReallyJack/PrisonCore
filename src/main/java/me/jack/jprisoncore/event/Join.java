@@ -28,7 +28,7 @@ public class Join implements Listener {
 
         User user = new User(player.getName(), 100.0D, 0, false, null);
         //TODO add spawn loc from config
-        PrivateMine pmine = new PrivateMine(instance.getUser(player.getName()), null, null);
+        PrivateMine pmine = new PrivateMine(user, null, null);
 
         user.setPrivateMine(pmine);
         pmine.create();

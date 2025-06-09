@@ -30,19 +30,11 @@ public class PrisonCore extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new Join(this), this);
 
         getCommand("rankup").setExecutor(new MineCommand(this));
+        getCommand("rank").setExecutor(new MineCommand(this));
+        getCommand("balance").setExecutor(new MineCommand(this));
 
         Rank.loadRanks("rank.yml");
 
-        user1.setRank(Rank.getRankByID(1));
-        Rank rank = user1.getRank();
-
-        rank.promoteUser(user1);
-
-        System.out.println(user1.getRank().getPrefix() + " new rank");
-
-        for (Enchant enchant : Enchant.values()) {
-            System.out.println(enchant.getItem());
-        }
     }
 
     @Override

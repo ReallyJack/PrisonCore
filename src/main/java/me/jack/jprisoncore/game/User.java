@@ -23,6 +23,7 @@ public class User {
         this.enchantList = enchantList;
 
         setRank(Rank.getRankByID(1));
+
     }
 
     public String getName() {
