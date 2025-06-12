@@ -17,6 +17,11 @@ public class Rank {
 
     public static Map<Integer, Rank> ranks = new HashMap<>();
 
+    public Rank(String prefix, String color) {
+        this.prefix = prefix;
+        this.color = color;
+    }
+
     public Rank(String prefix, int price, String color) {
         this.prefix = prefix;
         this.price = price;
@@ -59,6 +64,14 @@ public class Rank {
         return null;
     }
 
+    public static Rank getRankByPrefix(String prefix) {
+        for (Map.Entry<Integer, Rank> rank : ranks.entrySet()) {
+            if (rank.getValue().getPrefix().equals(prefix)) {
+                return rank.getValue();
+            }
+        }
+        return null;
+    }
     public void promoteUser(User user) {
         Rank next = user.getRank().getNextRank();
 
@@ -74,7 +87,7 @@ public class Rank {
         File rankFile = new File(PrisonCore.getPlugin(PrisonCore.class).getDataFolder(), path);
 
         if (!rankFile.exists()) {
-            PrisonCore.getPlugin(PrisonCore.class).saveResource("rank.yml", false); // Copy the default ranks.yml from your JAR
+            PrisonCore.getPlugin(PrisonCore.class).saveResource("rank.yml", false);
 
             return;
         }
@@ -96,12 +109,6 @@ public class Rank {
             ranks.put(ID, rank);
 
         }
-
     }
-        /*
-        for (Map.Entry<Integer, Rank> r : ranks.entrySet()) {
-            System.out.println(r.getKey() + r.getValue().getPrefix() + r.getValue().getPrice());
-        }
 
-         */
 }

@@ -1,11 +1,17 @@
 name: jPrisonCore
 main: me.jack.jprisoncore.PrisonCore
 version: 0.1
-api-version: 1.21.4
+api-version: 1.21
 author: ReallyJack
 commands:
   rank:
   rankup:
   balance:
+  setbal:
+  unlock:
+  lock:
+  pmine:
+  sell:
+
 
 

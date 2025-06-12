@@ -9,18 +9,21 @@ public class User {
 
     private String name;
     private Rank rank;
-    private double balance;
-    private int tokens;
+    private double balance; //rankup balance
+    private int tokens; //to be used to purchase enchantment upgrades
+    private int level; //pickaxe level (unlock enchantments, is the players XP level)
     private boolean isPrestige;
     private PrivateMine privateMine;
     private List<Enchant> enchantList;
+    private boolean inMine = false;
 
-    public User(String name, double balance, int tokens, boolean isPrestige, List<Enchant> enchantList) {
+    public User(String name, double balance, int tokens, int level, Rank rank, boolean isPrestige, List<Enchant> enchantList) {
         this.name = name;
         this.balance = balance;
         this.tokens = tokens;
         this.isPrestige = isPrestige;
         this.enchantList = enchantList;
+        this.level = level;
 
         setRank(Rank.getRankByID(1));
 
@@ -54,6 +57,10 @@ public class User {
         this.tokens = tokens;
     }
 
+    public int getLevel() {
+        return level;
+    }
+
     public boolean isPrestige() {
         return isPrestige;
     }
@@ -66,8 +73,20 @@ public class User {
         this.privateMine = privateMine;
     }
 
+    public boolean isInMine() {
+        return inMine;
+    }
+
+    public void setInMine(boolean inMine) {
+        this.inMine = inMine;
+    }
+
     public List<Enchant> getEnchantList() {
         return enchantList;
+    }
+
+    public void addEnchant(Enchant enchant) {
+        enchantList.add(enchant);
     }
 
 }

@@ -1,13 +1,21 @@
-rank-price-multiplier: 1
-rankup-multiplier: 1
+rank-cost-multiplier: 1
+money-multiplier: 1
 tokens-multiplier: 1
-reset-timer: 60
+enchant-upgrade-price: 100.0
+mine-reset-timer: 60
+
 private-mine-spawn:
-  x: -65
-  y: 8
-  z: -0
+  x: -10
+  y: 50
+  z: -10
   yaw: -90.0
   pitch: -0.0
-
-
-
+private-mine-area:
+  point1:
+    x: 0
+    y: 100
+    z: 0
+  point2:
+    x: 10
+    y: 90
+    z: 10

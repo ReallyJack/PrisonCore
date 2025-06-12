@@ -26,7 +26,7 @@ public abstract class AbstractMenu implements InventoryHolder {
         player.openInventory(inventory);
     }
 
-    protected abstract void initializeItems();
+    protected abstract void initializeItems(User user);
 
     @Override
     public Inventory getInventory() {

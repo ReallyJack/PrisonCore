@@ -1,42 +1,43 @@
 package me.jack.jprisoncore.mine;
 
+import me.jack.jprisoncore.PrisonCore;
 import me.jack.jprisoncore.game.User;
 import org.apache.commons.io.FileUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import org.bukkit.WorldCreator;
+import org.bukkit.Material;
+import org.bukkit.World;
+import org.bukkit.configuration.ConfigurationSection;
 
 import java.io.File;
 import java.io.IOException;
 
 public class PrivateMine extends AbstractMine {
 
+    private PrisonCore instance;
 
-    public PrivateMine(User owner, Location point1, Location point2) {
+    public PrivateMine(PrisonCore instance, User owner, Location point1, Location point2) {
         super(owner, point1, point2);
-    }
 
-    public void copyWorld(File file) {
-
-        try {
-
-            FileUtils.copyDirectory(file, new File(Bukkit.getWorldContainer() + File.separator + file.getName() + "." + Bukkit.getPlayer(getOwner().getName()).getUniqueId()));
-            WorldCreator wc = new WorldCreator(file.getName() + "." + Bukkit.getPlayer(getOwner().getName()).getUniqueId());
-            wc.createWorld();
-
-            System.out.println("copied to " + Bukkit.getWorldContainer().getAbsolutePath());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        this.instance = instance;
     }
 
     @Override
-    public void create() {
+    public void create(User user) {
 
-        copyWorld(new File(Bukkit.getWorldContainer(), "mineworld"));
+        Bukkit.getScheduler().runTask(instance, () -> {
+            File file = new File(Bukkit.getServer().getWorldContainer(), "mineworld");
 
+            try {
+                FileUtils.copyDirectory(file, new File(file.getName() + "." + Bukkit.getPlayer(getOwner().getName()).getUniqueId()));
 
-        /*
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    public void initializeMine(World world, Material material) {
         Location point1 = getPoint1();
         Location point2 = getPoint2();
 
@@ -47,23 +48,43 @@ public class PrivateMine extends AbstractMine {
         int minz = Math.min(point1.getBlockZ(), point2.getBlockZ());
         int maxz = Math.max(point1.getBlockZ(), point2.getBlockZ());
 
-        for (int x = minx; x <= maxx; x++) {
-            for (int y = miny; y <= maxy; y++) {
-                for (int z = minz; z <= maxz; z++) {
-
-                    Location cuboid = new Location(Bukkit.getWorld("world"), x, y, z);
-
-
-                    if (x != minx || x != maxx || z != minz || z != maxz) {
-
-                        cuboid.getBlock().setType(Material.GLASS);
+        if (material == null) {
+            for (int x = minx; x <= maxx; x++) {
+                for (int y = miny; y <= maxy; y++) {
+                    for (int z = minz; z <= maxz; z++) {
+                        Location cuboid = new Location(world, x, y, z);
+                        if (x != minx || x != maxx || z != minz || z != maxz) {
+                            cuboid.getBlock().setType(Material.GLASS);
+                        }
+                    }
+                }
+            }
+        } else {
+            for (int x = minx; x <= maxx; x++) {
+                for (int y = miny; y <= maxy; y++) {
+                    for (int z = minz; z <= maxz; z++) {
+                        Location cuboid = new Location(world, x, y, z);
+                        if (x != minx || x != maxx || z != minz || z != maxz) {
+                            cuboid.getBlock().setType(material);
+                        }
                     }
                 }
             }
         }
+    }
 
-         */
+    public void setSpawn() {
+        ConfigurationSection private_mine_spawn = instance.getConfig().getConfigurationSection("private-mine-spawn");
 
+        int x = private_mine_spawn.getInt("x");
+        int y = private_mine_spawn.getInt("y");
+        int z = private_mine_spawn.getInt("z");
 
+        Bukkit.getServer().getWorld("mineworld." + Bukkit.getPlayer(getOwner().getName()).getUniqueId()).setSpawnLocation(new Location(Bukkit.getWorld("mineworld." + Bukkit.getPlayer(getOwner().getName()).getUniqueId()), x, y, z));
+
+        System.out.println(x + " " + y + " " + z + " " +
+                Bukkit.getWorld("mineworld." + Bukkit.getPlayer(getOwner().getName()).getUniqueId()).getSpawnLocation().getX() +
+                Bukkit.getWorld("mineworld." + Bukkit.getPlayer(getOwner().getName()).getUniqueId()).getSpawnLocation().getY() +
+                Bukkit.getWorld("mineworld." + Bukkit.getPlayer(getOwner().getName()).getUniqueId()).getSpawnLocation().getZ());
     }
 }

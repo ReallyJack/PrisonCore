@@ -10,7 +10,7 @@ public class PrestigeMine extends AbstractMine {
     }
 
     @Override
-    public void create() {
+    public void create(User user) {
 
     }
 }

@@ -30,6 +30,14 @@ public abstract class AbstractMine {
         return point2;
     }
 
-    public abstract void create();
+    public void setPoint1(Location point1) {
+        this.point1 = point1;
+    }
+
+    public void setPoint2(Location point2) {
+        this.point2 = point2;
+    }
+
+    public abstract void create(User user);
 
 }
